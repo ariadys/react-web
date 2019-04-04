@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Create from './components/create.component';
 import Index from './components/index.component';
+import Edit from './components/edit.component';
 
 class App extends Component {
   render() {
@@ -44,6 +45,7 @@ class App extends Component {
           <div className="container">
             <Switch>
                 <Route exact path='/create' component={ Create } />
+                <Route path='/edit/:id' component={ Edit } />
                 <Route path='/' component={ Index } />
             </Switch>
           </div>
