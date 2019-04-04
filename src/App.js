@@ -44,7 +44,7 @@ class App extends Component {
           <div className="container">
             <Switch>
                 <Route exact path='/create' component={ Create } />
-                <Route path='/index' component={ Index } />
+                <Route path='/' component={ Index } />
             </Switch>
           </div>
       </Router>
