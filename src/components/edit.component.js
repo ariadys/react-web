@@ -17,7 +17,7 @@ export default class Edit extends Component {
   }
 
   componentDidMount() {
-      axios.get('http://localhost:4000/business/edit/'+this.props.match.params.id)
+      axios.get('http://localhost:5000/business/edit/'+this.props.match.params.id)
           .then(response => {
               this.setState({ 
                 person_name: response.data.person_name, 
@@ -52,7 +52,7 @@ export default class Edit extends Component {
       business_name: this.state.business_name,
       business_gst_number: this.state.business_gst_number
     };
-    axios.post('http://localhost:4000/business/update/'+this.props.match.params.id, obj)
+    axios.post('http://localhost:5000/business/update/'+this.props.match.params.id, obj)
         .then(res => console.log(res.data));
     
     this.props.history.push('/');

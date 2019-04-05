@@ -1,18 +1,18 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 4000;
+const port = 5000 || process.env.PORT;
 const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./DB.js');
 const businessRoute = require('./business.route');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, function (err, res) {
+mongoose.connect(config.DB, { useNewUrlParser: true },  function (err, res) {
 	  if (err) {
-	  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+	  console.log ('ERROR connecting');
 	  } else {
-	  console.log ('Succeeded connected to: ' + uristring);
+	  console.log ('Succeeded connected');
 	  }
 });
 
@@ -22,6 +22,4 @@ app.use(bodyParser.json());
 
 app.use('/business', businessRoute);
 
-app.listen(PORT, function(){
-  console.log('Server is running on Port:',PORT);
-});
+app.listen(port, () => console.log('Listen to the port of '+ port))
