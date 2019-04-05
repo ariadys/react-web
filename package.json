@@ -16,6 +16,7 @@
   },
   "scripts": {
     "start": "concurrently \"cd api && node server.js\" \"react-scripts start\"",
+    "heroku-postbuild": "npm install && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
